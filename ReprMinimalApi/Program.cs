@@ -1,12 +1,14 @@
+using ReprMinimalApi.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
+ApiReference.AddInto(builder);
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-	app.MapOpenApi();
+	ApiReference.UseIn(app);
 }
 
 app.UseHttpsRedirection();
