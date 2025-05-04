@@ -14,5 +14,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 Middlewares.UseIn(app);
+Routes.Map(app);
 
 app.Run();

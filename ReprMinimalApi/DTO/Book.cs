@@ -8,9 +8,9 @@ public sealed record Book(
 {
 	public Book(Entities.Book entity)
 		: this(
-			entity.Id,
-			entity.Title,
-			entity.Author,
-			entity.DateOfPublication)
+			Id: entity.Id,
+			Title: entity.Title,
+			Author: entity.Author,
+			DateOfPublication: entity.DateOfPublication)
 	{ }
 }

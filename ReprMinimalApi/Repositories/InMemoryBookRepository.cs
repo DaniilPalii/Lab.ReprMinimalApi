@@ -5,6 +5,13 @@ namespace ReprMinimalApi.Repositories;
 
 public sealed class InMemoryBookRepository : IBookRepository
 {
+	public InMemoryBookRepository()
+	{
+		Add(new() { Title = "Example Book 1", Author = "Author 1", DateOfPublication = DateOnly.FromDateTime(DateTime.Now) });
+		Add(new() { Title = "Example Book 2", Author = "Author 2", DateOfPublication = DateOnly.FromDateTime(DateTime.Now) });
+		Add(new() { Title = "Example Book 3", Author = "Author 3", DateOfPublication = DateOnly.FromDateTime(DateTime.Now) });
+	}
+	
 	public void Add(Entities.Book entity)
 	{
 		lock (addingLock)

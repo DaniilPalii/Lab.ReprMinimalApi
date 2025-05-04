@@ -30,7 +30,7 @@ public sealed class ExceptionHandlingMiddleware : IMiddleware
 		await context.Response.WriteAsJsonAsync(response);
 	}
 
-	private record ExceptionResponse(
+	private sealed record ExceptionResponse(
 		HttpStatusCode StatusCode,
 		string Message);
 }
