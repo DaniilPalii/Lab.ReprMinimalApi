@@ -6,7 +6,7 @@ namespace ReprMinimalApi.Endpoints;
 public static class GetBookEndpoint
 {
 	public static Results<Ok<DTO.Book>, NotFound> Handle(
-		long id,
+		Id id,
 		IBookRepository bookRepository)
 	{
 		var entity = bookRepository.Get(id);

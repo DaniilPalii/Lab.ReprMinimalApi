@@ -1,7 +1,7 @@
 namespace ReprMinimalApi.DTO;
 
 public sealed record Book(
-	long Id,
+	Id Id,
 	string Title,
 	string Author,
 	DateOnly DateOfPublication)

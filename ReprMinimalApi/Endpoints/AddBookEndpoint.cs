@@ -8,7 +8,7 @@ namespace ReprMinimalApi.Endpoints;
 
 public static class AddBookEndpoint
 {
-	public static Results<Ok, BadRequest<IDictionary<string, string[]>>> Handle(
+	public static Results<Ok, DetailedBadRequest> Handle(
 		NewBook newBook,
 		IValidator<NewBook> newBookValidator,
 		IBookRepository bookRepository)

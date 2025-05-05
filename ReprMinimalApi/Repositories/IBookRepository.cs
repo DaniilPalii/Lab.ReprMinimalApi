@@ -6,11 +6,11 @@ public interface IBookRepository
 {
 	void Add(Book entity);
 
-	Book? Get(long id);
+	Book? Get(Id id);
 
 	IEnumerable<Book> GetAll();
 
 	void Update(Book entity);
 
-	void Delete(long id);
+	void Delete(Id id);
 }

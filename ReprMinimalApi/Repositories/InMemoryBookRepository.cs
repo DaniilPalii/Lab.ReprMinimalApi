@@ -22,7 +22,7 @@ public sealed class InMemoryBookRepository : IBookRepository
 		}
 	}
 
-	public Entities.Book? Get(long id)
+	public Entities.Book? Get(Id id)
 	{
 		return dictionary.GetValueOrDefault(id);
 	}
@@ -44,7 +44,7 @@ public sealed class InMemoryBookRepository : IBookRepository
 		existingEntity.DateOfPublication = entity.DateOfPublication;
 	}
 
-	public void Delete(long id)
+	public void Delete(Id id)
 	{
 		var succeed = dictionary.TryRemove(id, out _);
 
@@ -52,7 +52,7 @@ public sealed class InMemoryBookRepository : IBookRepository
 			throw new EntityNotFoundException(id);
 	}
 
-	private long nextId = 1;
-	private readonly ConcurrentDictionary<long, Entities.Book> dictionary = new();
+	private Id nextId = 1;
+	private readonly ConcurrentDictionary<Id, Entities.Book> dictionary = new();
 	private readonly Lock addingLock = new();
 }
