@@ -2,6 +2,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using ReprMinimalApi.DTO;
 using ReprMinimalApi.Repositories;
+using ReprMinimalApi.Extensions;
 
 namespace ReprMinimalApi.Endpoints;
 
@@ -13,10 +14,8 @@ public static class UpdateBookEndpoint
 		IValidator<NewBook> newBookValidator,
 		IBookRepository bookRepository)
 	{
-		var validationResult = newBookValidator.Validate(newBook);
-		
-		if (!validationResult.IsValid)
-			return TypedResults.BadRequest(validationResult.ToDictionary());
+		if (newBookValidator.IsInvalid(newBook, out var badRequest))
+			return badRequest;
 		
 		var entity = newBook.ToEntity();
 		entity.Id = id;
