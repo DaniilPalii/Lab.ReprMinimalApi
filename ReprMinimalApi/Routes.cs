@@ -1,7 +1,7 @@
 using ReprMinimalApi.Endpoints;
 using ReprMinimalApi.Extensions;
 
-namespace ReprMinimalApi.Configuration;
+namespace ReprMinimalApi;
 
 public static class Routes
 {

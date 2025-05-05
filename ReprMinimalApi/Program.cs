@@ -1,3 +1,4 @@
+using ReprMinimalApi;
 using ReprMinimalApi.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
