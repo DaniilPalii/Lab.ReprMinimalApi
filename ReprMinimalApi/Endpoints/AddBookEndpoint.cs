@@ -8,7 +8,7 @@ namespace ReprMinimalApi.Endpoints;
 
 public static class AddBookEndpoint
 {
-	public static Results<Ok, DetailedBadRequest> Handle(
+	public static Results<Ok<DTO.Book>, DetailedBadRequest> Handle(
 		NewBook newBook,
 		IValidator<NewBook> newBookValidator,
 		IBookRepository bookRepository)
@@ -19,6 +19,7 @@ public static class AddBookEndpoint
 		var entity = newBook.ToEntity();
 		bookRepository.Add(entity);
 		
-		return TypedResults.Ok();
+		var addedDto = new DTO.Book(entity);
+		return TypedResults.Ok(addedDto);
 	}
 }
